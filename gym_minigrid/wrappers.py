@@ -182,7 +182,8 @@ class RGBImgObsWrapper(gym.core.ObservationWrapper):
 
         return {
             'mission': obs['mission'],
-            'image': rgb_img
+            'image': rgb_img,
+            'grid': obs['image']
         }
 
 
