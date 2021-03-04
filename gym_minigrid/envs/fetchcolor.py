@@ -16,7 +16,7 @@ class FetchColorEnv(MiniGridEnv):
     ):
         self.numObjs = numObjs
         assert(numObjs < len(COLOR_NAMES)-1)
-        self.colors = ['green', 'yellow', 'blue']
+        self.colors = ['green', 'yellow', 'blue', 'purple']
         self.targetColor = self.colors[targetColorIdx]
 
         super().__init__(
@@ -88,6 +88,10 @@ class FetchColorEnv(MiniGridEnv):
 
         return obs, reward, done, info
 
+    def update_targetcolor(self, targetColorIdx):
+        self.targetColor = self.colors[targetColorIdx]
+
+
 class FetchGreenEnv(FetchColorEnv):
     def __init__(self):
         super().__init__(size=8, numObjs=3, targetColorIdx=0)
@@ -99,6 +103,10 @@ class FetchYellowEnv(FetchColorEnv):
 class FetchBlueEnv(FetchColorEnv):
     def __init__(self):
         super().__init__(size=8, numObjs=3, targetColorIdx=2)
+
+class FetchPurpleEnv(FetchColorEnv):
+    def __init__(self):
+        super().__init__(size=8, numObjs=3, targetColorIdx=3)
 
 register(
     id='MiniGrid-FetchGreen-8x8-v0',
