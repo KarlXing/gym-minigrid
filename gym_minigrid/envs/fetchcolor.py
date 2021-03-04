@@ -122,3 +122,8 @@ register(
     id='MiniGrid-FetchBlue-8x8-v0',
     entry_point='gym_minigrid.envs:FetchBlueEnv'
 )
+
+register(
+    id='MiniGrid-FetchPurple-8x8-v0',
+    entry_point='gym_minigrid.envs:FetchPurpleEnv'
+)
