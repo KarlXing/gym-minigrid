@@ -16,7 +16,8 @@ class FetchColorEnv(MiniGridEnv):
     ):
         self.numObjs = numObjs
         assert(numObjs < len(COLOR_NAMES)-1)
-        self.colors = ['green', 'yellow', 'blue', 'purple']
+        # self.colors = ['green', 'yellow', 'blue', 'purple']
+        self.colors = ['green', 'yellow', 'blue']
         self.targetColor = self.colors[targetColorIdx]
 
         super().__init__(
@@ -78,8 +79,8 @@ class FetchColorEnv(MiniGridEnv):
         obs, reward, done, info = MiniGridEnv.step(self, action)
 
         if self.carrying:
+            print('pick up color', self.carrying.color, self.targetColor)
             if self.carrying.color == self.targetColor:
-                print('pick up color', self.carrying.color, self.targetColor)
                 reward = 1
                 done = True
             else:
@@ -104,9 +105,9 @@ class FetchBlueEnv(FetchColorEnv):
     def __init__(self):
         super().__init__(size=8, numObjs=3, targetColorIdx=2)
 
-class FetchPurpleEnv(FetchColorEnv):
-    def __init__(self):
-        super().__init__(size=8, numObjs=3, targetColorIdx=3)
+# class FetchPurpleEnv(FetchColorEnv):
+#     def __init__(self):
+#         super().__init__(size=8, numObjs=3, targetColorIdx=3)
 
 register(
     id='MiniGrid-FetchGreen-8x8-v0',
@@ -123,7 +124,7 @@ register(
     entry_point='gym_minigrid.envs:FetchBlueEnv'
 )
 
-register(
-    id='MiniGrid-FetchPurple-8x8-v0',
-    entry_point='gym_minigrid.envs:FetchPurpleEnv'
-)
+# register(
+#     id='MiniGrid-FetchPurple-8x8-v0',
+#     entry_point='gym_minigrid.envs:FetchPurpleEnv'
+# )
