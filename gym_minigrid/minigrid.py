@@ -454,7 +454,10 @@ class Grid:
         if key in cls.tile_cache:
             return cls.tile_cache[key]
 
-        img = np.zeros(shape=(tile_size * subdivs, tile_size * subdivs, 3), dtype=np.uint8)
+        # img = np.zeros(shape=(tile_size * subdivs, tile_size * subdivs, 3), dtype=np.uint8)
+
+        img = np.ones(shape=(tile_size * subdivs, tile_size * subdivs, 3), dtype=np.uint8)*255
+
 
         # Draw the grid lines (top and left edges)
         fill_coords(img, point_in_rect(0, 0.031, 0, 1), (100, 100, 100))
