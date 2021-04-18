@@ -79,7 +79,7 @@ class FetchColorEnv(MiniGridEnv):
         obs, reward, done, info = MiniGridEnv.step(self, action)
 
         if self.carrying:
-            print('pick up color', self.carrying.color, self.targetColor)
+            # print('pick up color', self.carrying.color, self.targetColor)
             if self.carrying.color == self.targetColor:
                 reward = 1
                 done = True

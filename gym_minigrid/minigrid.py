@@ -16,7 +16,7 @@ COLORS = {
     'green' : np.array([0, 255, 0]),
     'blue'  : np.array([0, 0, 255]),
     'purple': np.array([112, 39, 195]),
-    'yellow': np.array([255, 255, 0]),
+    'yellow': np.array([255, 0, 0]),
     'grey'  : np.array([100, 100, 100])
 }
 
@@ -473,7 +473,7 @@ class Grid:
 
             # Rotate the agent based on its direction
             tri_fn = rotate_fn(tri_fn, cx=0.5, cy=0.5, theta=0.5*math.pi*agent_dir)
-            fill_coords(img, tri_fn, (255, 0, 0))
+            fill_coords(img, tri_fn, (255, 255, 255))
 
         # Highlight the cell if needed
         if highlight:
